@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import neilsayok.github.myutils.MathUtils;
+import neilsayok.github.widget5.Views.CustomView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MathUtils.Multiply(10,20);
+        CustomView customView = findViewById(R.id.customView);
     }
 }
