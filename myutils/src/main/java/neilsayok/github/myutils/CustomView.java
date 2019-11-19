@@ -12,6 +12,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -106,9 +107,17 @@ public class CustomView extends View {
         else
             typeface = Typeface.create("Arial", Typeface.BOLD);
 
-
+        this.setOnLongClickListener(longClickListener);
 
     }
+
+    OnLongClickListener longClickListener = new OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            Toast.makeText(getContext(),"Long Clicked",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    };
 
     @Override
     protected void onDraw(Canvas canvas) {
