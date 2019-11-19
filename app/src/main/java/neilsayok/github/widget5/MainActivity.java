@@ -3,17 +3,32 @@ package neilsayok.github.widget5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
+import neilsayok.github.myutils.CustomView;
 import neilsayok.github.myutils.MathUtils;
-import neilsayok.github.widget5.Views.CustomView;
 
 public class MainActivity extends AppCompatActivity {
 
+    ViewGroup root;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CustomView customView = findViewById(R.id.customView);
+        Button b = findViewById(R.id.button);
+        root = findViewById(R.id.root);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomView customView = new CustomView(getApplicationContext());
+                root.addView(customView);
+
+            }
+        });
+
     }
 }
