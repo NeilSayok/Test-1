@@ -18,6 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 
+import java.util.Random;
+
 import static neilsayok.github.myutils.DisplayMerticsConverters.dp;
 import static neilsayok.github.myutils.DisplayMerticsConverters.dp2px;
 import static neilsayok.github.myutils.DisplayMerticsConverters.sp;
@@ -30,6 +32,8 @@ public class CustomView extends View {
     float viewHeight90percent;
     float borderRadius;
     float nodeRadius;
+
+    ViewGroup parent;
 
 
     int baseColor;
@@ -109,12 +113,26 @@ public class CustomView extends View {
 
         this.setOnLongClickListener(longClickListener);
 
+
+    }
+
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        parent = (ViewGroup) this.getParent();
+        Random obj = new Random();
+        int rand_num = obj.nextInt(0xffffff + 1);
+
+
+        parent.setBackgroundColor(Color.parseColor( String.format("#%06x", rand_num)));
     }
 
     OnLongClickListener longClickListener = new OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
             Toast.makeText(getContext(),"Long Clicked",Toast.LENGTH_SHORT).show();
+
             return true;
         }
     };
