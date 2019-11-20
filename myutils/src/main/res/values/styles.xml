@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="CustomBackground">
+        <item name="android:popupBackground">@drawable/popup_background</item>
+    </style>
+
+</resources>
